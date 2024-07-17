@@ -1,0 +1,26 @@
+#include <iostream>
+#include "date.h"
+#include <string>
+using namespace std;
+
+class Person
+{
+private: 
+	string name;
+	string nationality;
+	Date dob, dod;//object of the class Date
+	int sex;//0=female and 1=male
+
+public:
+	Person(string n = "", int s = 0, string nat = "U.S.A") :name(n), sex(s), nationality(nat) {}
+	void setdob(int m, int d, int y) { dob.setDate(m, d, y); }
+	void setdod(int m, int d, int y) { dod.setDate(m, d, y); }
+	void printnationality() { cout << nationality; }
+	void printdob() { cout << dob; }
+	void prindod() { cout << dod; }
+};
+
+int main()
+{
+    std::cout << "Hello World!\n";
+}
