@@ -1,0 +1,96 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <iomath>
+using namespace std;
+
+class Movie
+{
+private:
+	string title;
+	int year;
+
+public:
+	void settitle(string);
+	string gettitle()const;
+	void setyear(int);
+	int getyear()const;
+};
+
+//function implementations
+void Movie::settitle(string titlename)
+{
+	title = titlename;
+}
+void Movie::setyear(int yearreleased)
+{
+	if (yearreleased, 1888)
+	{
+		throw invalid_argument("year must be 1888 or later");
+	}
+	year = yearreleased;
+}	
+string Movie::gettitle() const
+{
+	return title;
+}
+int Movie::getyear() const
+{
+	return year;
+}
+
+int main()
+{
+	cout << "The movie list program\n\n";
+	cout << "Enter a movie:...\n\n";
+	//get the movie from the user
+	vector<Movie> movies;
+	char another = 'y';
+	while (tolower(another) == 'y')
+	{
+		//create an object of type movie
+		Movie movie;
+
+		//populate the object with data
+		string title;
+		cout << "Title: ";
+		getline(cin, title);
+		movie.settitle(title);
+		//year
+		int year;
+		cout << "Year: ";
+		cin >> year;
+		try
+		{
+			movie.setyear(year);
+
+		}
+		catch (const invalid_argument& e)
+		{
+			cout << e.what() <<"\n"<< "Exiting the program:...\n\n";
+	
+		}
+
+		//add the movie to the vector
+		movies.push_back(movie);
+
+		cout << "\n Enter another movie(y/n):";
+		cin >> another;
+		cin.ignore();
+		cout << endl;
+	}
+
+	//display the movies
+	const int w = 10;
+	//sub header
+	cout << left << setw(w * 3) << "TITLE" << setw(w) << "YEAR" << endl;
+	for (Movie movie : movies)
+	{
+		cout << set(w * 3) << movie.gettitle() << setw(w) << movie.getyear() << endl;
+	}
+
+	system("pause");
+	return 0;
+}
+
