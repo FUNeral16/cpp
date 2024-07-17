@@ -22,5 +22,15 @@ public:
 
 int main()
 {
-    std::cout << "Hello World!\n";
+   //create object of the class
+	Person author("Thomas Wonder", 1);
+	author.setdob(4, 13, 1920);
+	author.setdod(7, 4, 2019);
+	cout << "The author of the book was ";
+	author.printname();
+	cout << "\n He was born on ";
+	author.printdob();
+	cout << "\n and died on ";
+	author.printdod();
+	cout << " .\n";
 }
