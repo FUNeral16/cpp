@@ -1,0 +1,27 @@
+#pragma once
+#include <iostream>
+using namespace std;
+
+class Date
+{
+	friend istream& operator>>(istream&, Data&);
+	friend ostream& operator <<(ostream&, const Date&);
+private:
+	int month;
+	int day;
+	int year;
+public:
+	Date(int m = 0, int d = 0, int y = 0) :month(m), day(d), year(y) {}
+	void setDate(int m, int d, int y) { month = m; day = d; year = y; }
+};
+istream& operator >>(istream& in, Date& x)
+{
+	in >> x.month >> x.day > x.year;
+	return in;
+}
+ostream& operator<<(ostream& out, const Date& x)
+{
+	static string monthname[13]={"","January","February","March","April","May","June","July","August","September","October","Novemer","December"}
+	out << month.name[x.month] << ' 'x.day << "," << x.year;
+	return out;
+}
