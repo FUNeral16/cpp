@@ -1,0 +1,41 @@
+
+#include <iostream>
+using namespace std;
+#include <string>
+
+int factorial(int n)
+{
+	if (n < 0)
+	{
+		throw string("Argument for factorial negative!");
+	}
+	int accumulator = 1;
+	while (n > 0)
+	{
+		accumulator = accumulator * n;
+		n--;
+
+	}
+	return accumulator;
+}
+
+int main()
+{
+	try
+	{
+		cout << "Factorial of 3 is: " << factorial(3) << endl;
+		cout << "Factorial of -1 is: " << factorial(-1) << endl;
+		cout << "Factorial of 5 is: " << factorial(5) << endl;
+	}
+	//control passes here
+	catch (string error)
+	{
+		cout << "Error occured: " << error << endl;
+
+	}
+
+	catch (...)
+	{
+		cout << "Default Catch" << endl;
+	}
+}
