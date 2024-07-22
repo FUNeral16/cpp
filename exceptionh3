@@ -39,3 +39,30 @@ int main()
 		cout << "Default Catch" << endl;
 	}
 }
+
+
+
+
+
+#include <iostream>
+using namespace std;
+#include <string>
+
+
+int main()
+{
+	string lang "c++";
+	try
+	{
+		lang.erase(4, 6);
+
+	}
+	catch (exception& error)
+	{
+		cerr << "Exception: " << error.what() << endl;
+	}
+	cout << endl;
+	system("pause");
+
+}
+
