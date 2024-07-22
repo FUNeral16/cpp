@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+    int a, b;
+    char answer = 'y';
+    try
+    {
+        cout << "Enter a number(integer): ";
+        cin >> a;
+        //.fail is an existing method 
+        if (cin.fail()) { throw runtime_error("Input is not an integer.\n"); }
+        cout << "Enter a number(Integer): ";
+        cin >> b;
+        if (cin.fail()) { throw runtime_error("Input is not an integer.\n"); }
+
+    }
+    catch (const runtime_error& e)
+    {
+        cout << "ERROR: " << e.what() << endl;
+        system("pause");
+        return 1;
+    }
+    if (a > b && a > 0)
+    {
+        ++a;
+    }
+    else
+    {
+        --a;
+    }
+    //display
+    cout << a << endl;
+    cout << endl;
+    system("pause");
+}
+
