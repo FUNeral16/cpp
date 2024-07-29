@@ -23,18 +23,30 @@ int main()
 	st1.studentname = "James";
 	st1.studentcourse.CourseNumber = 125;
 	st1.studentcourse.grade = 'A';
-	
 	//mycourse.CourseNumber = 125;
 //	mycourse.grade = 'A';
 
 
 	//display values stored in data members
-	cout << st1.studentname;
+	cout << st1.studentname<<": ";
 	cout << "I took MAC " << st1.studentcourse.CourseNumber;
 	cout << " and I got a(n) " << st1.studentcourse.grade << endl;
 
 
 	cout << endl;
+
+	const int numberofcourses = 4;
+	//create an array of structures called Course and intialize the items
+	Course courselist[numberofcourses] = { {101,'A'},{15,'B'}, {190, 'C'}, {289,'A'} };
+
+	//display the list
+	cout << "Course List " << endl;
+	for (int i = 0; i < numberofcourses; i++)
+	{
+
+		cout << courselist[i].CourseNumber;
+		cout << " " << courselist[i].grade << endl;
+	}
 
 	system("pause");
 	return 0;
