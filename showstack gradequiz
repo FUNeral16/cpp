@@ -1,0 +1,42 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+void showstack(stack <int>gquiz)
+{
+	stack<int> grade = gquiz; 
+	while (!grade.empty())
+	{
+		cout << "\t" << grade.top();
+		grade.pop();
+	}
+	cout << '\n';
+}
+int main()
+{
+	stack<int>gradequiz;
+	gradequiz.push(10);
+	gradequiz.push(30);
+	gradequiz.push(20);
+	gradequiz.push(5);
+	gradequiz.push(1);
+
+	//display items
+	cout << "the stack gradequiz is: ";
+	showstack(gradequiz);
+
+
+	//other in-built functions
+	cout << "\ngradequiz.size(): " << gradequiz.size();
+	cout << "\ngradequiz.top(): " << gradequiz.top();
+
+	//remove items from the top
+	cout << "\ngradequiz.pop(): ";
+	gradequiz.pop();
+	showstack(gradequiz);
+	cout << endl;
+
+	system("pause");
+	return 0;
+}
