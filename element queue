@@ -1,0 +1,84 @@
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+int queuee[100];
+int n = 100;
+int front = -1;
+int rear = -1;
+void insert()
+{
+	int val;
+	if (rear == n - 1)
+		cout << "Queue overflow " << endl;
+	else
+	{
+		if (front == -1)
+			front = 0;
+		cout << "insert the element in queue : " << endl;
+		cin >> val;
+		rear++;
+		queuee[rear] = val;
+	}
+}
+
+void Delete()
+{
+	if (front == -1 || front > rear)
+	{
+		cout << "queue underflow ";
+		return;
+	}
+	else
+	{
+		cout << "Element remove from queue is: " << queuee[front] << endl;
+	}
+}
+void display()
+{
+	if (front == -1)
+		cout << "queue is empty " << endl;
+	else
+	{
+		cout << "Queue elements are: ";
+		for (int i = front; i <= rear; i++)
+		{
+			cout << queuee[i] << " ";
+			cout << endl;
+		}
+	}
+}
+int main()
+{
+	int ch; 
+	cout << "1) Insert element to queue: " << endl;
+	cout << "2) Delete element from queue: " << endl;
+	cout << "Display all elements of the queue: " << endl;
+	cout << " 4) Exit. " << endl;
+
+	do
+	{
+		cout << "Enter your choice: " << endl;
+		cin >> ch;
+		switch (ch)
+		{
+		case 1:
+			insert();
+			break;
+		case 2:
+			Delete();
+			break;
+		case 3:
+			display();
+			break;
+		case 4: cout << "Exit " << endl;
+		default: cout << "Invalid choice. " << endl;
+		}
+
+		
+	} while (ch != 4);
+	system("pause");
+	return 0;
+}
