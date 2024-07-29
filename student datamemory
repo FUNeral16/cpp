@@ -1,0 +1,29 @@
+
+#include <iostream>
+using namespace std;
+
+
+class Student
+{
+private:
+	int age;
+public:
+	//constructor
+	Student() : age(12) {};
+	void getAge() { cout << "Age = " << age << endl; }
+
+};
+	
+	
+	int main()
+	{
+		//dynamically allocate memory for an object type Student
+		Student* ptr = new Student();
+
+		//call the getAge() function
+		ptr->getAge();
+
+		//ptr memory is release
+		delete ptr;
+
+	}
