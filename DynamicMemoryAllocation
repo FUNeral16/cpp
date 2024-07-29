@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //declare some variables
+    int i, n;
+
+    int* p;//pointer
+    cout << "How many numbers would you like to type?";
+     cin >> i;
+    p = new (nothrow) int[i]; //allocate a block of memory and return the adress of the memory
+    if (p == nullptr)
+        cout << "Error: memory could not be allocated. ";
+    else
+    {
+        for (n = 0; n < i; n++)
+        {
+            cout << "Enter gpa: ";
+            cin >> p[n];
+        }
+        cout << "you have entered: ";
+        for (n = 0; n < i ; n++)
+        {
+            cout << p[n] << ", ";
+        }
+        delete[] p; //release the block of memory allocated
+    }
+
+
+    system("pause");
+    return 0;
+}
