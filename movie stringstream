@@ -1,0 +1,50 @@
+// DynamicMemoryAllocation.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+
+struct movies
+{
+	string title;
+	int year;
+
+};
+
+//function prototype
+void printmovies(movies movie);
+int main()
+	{
+	
+	string mystr;
+	movies amovie;
+	movies* pmovie;
+	pmovie = &amovie;
+
+	//populate the object
+	cout << "Enter title for the movie: ";
+	getline(cin, pmovie->title);
+	cout << "Enter year for the release: ";
+	getline(cin, mystr);
+	stringstream(mystr) >> pmovie->year;
+
+
+	//display the information
+	cout << "\n you have entered:\n ";
+	cout << pmovie->title;
+	cout << "(c" << pmovie->year << ")\n";
+
+
+	system("pause");
+	return 0;
+	}
+//function implementation or definition
+void printmovies(movies movie)
+{
+	cout << movie.title;
+	cout << "(" << movie.year << ") ";
+}
