@@ -1,0 +1,46 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+
+struct movies
+{
+	string title;
+	int year;
+
+}mine, your;
+
+//function prototype
+void printmovies(movies movie);
+int main()
+	{
+	//create a string variable to convert from string to numeric
+	string mystr;
+
+	mine.title = "2001 a Space Odyssey ";
+	mine.year = 1968;
+	cout << endl;
+	
+	cout << "Enter title for the movie: ";
+	getline(cin, your.title);
+	cout << "Enter the year of release: ";
+	getline(cin, mystr);
+	stringstream(mystr) >> your.year;
+
+	//use and call the function to print
+	cout << "My favorite movie is: \n";
+	printmovies(mine);
+	cout << " and yours is: \n";
+	printmovies(your);
+
+	system("pause");
+	return 0;
+	}
+//function implementation or definition
+void printmovies(movies movie)
+{
+	cout << movie.title;
+	cout << "(" << movie.year << ") ";
+}
