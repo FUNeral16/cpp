@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+struct Course
+{
+	int CourseNumber;
+	char grade;
+
+};
+
+struct Student
+{
+	string studentname;
+	Course studentcourse; //struct composition
+};
+
+int main()
+	{
+	Student st1;
+	//assign values to data members
+	st1.studentname = "James";
+	st1.studentcourse.CourseNumber = 125;
+	st1.studentcourse.grade = 'A';
+	
+	//mycourse.CourseNumber = 125;
+//	mycourse.grade = 'A';
+
+
+	//display values stored in data members
+	cout << st1.studentname;
+	cout << "I took MAC " << st1.studentcourse.CourseNumber;
+	cout << " and I got a(n) " << st1.studentcourse.grade << endl;
+
+
+	cout << endl;
+
+	system("pause");
+	return 0;
+	}
+
