@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Declare some variables
+    int numElements; // Number of elements user wants to enter
+
+    // Pointer for dynamic array
+    int* gpaArray;
+
+    // Ask user for the number of elements
+    cout << "How many GPAs would you like to enter? ";
+    cin >> numElements;
+
+    // Allocate memory for the array
+    gpaArray = new (nothrow) int[numElements];
+    if (gpaArray == nullptr)
+    {
+        cout << "Error: memory could not be allocated." << endl;
+        return 1; // Exit with an error code
+    }
+
+    // Input GPA values from user
+    for (int i = 0; i < numElements; ++i)
+    {
+        cout << "Enter GPA " << (i + 1) << ": ";
+        cin >> gpaArray[i];
+    }
+
+    // Output the entered GPA values
+    cout << "You have entered: ";
+    for (int i = 0; i < numElements; ++i)
+    {
+        cout << gpaArray[i];
+        if (i < numElements - 1)
+        {
+            cout << ", ";
+        }
+    }
+    cout << endl;
+
+    // Release the allocated memory
+    delete[] gpaArray;
+
+    return 0; // Successful execution
+}
