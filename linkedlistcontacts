@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+const int maxrecs = 3;
+struct Teletype
+{
+	string name;
+	string phoneno;
+	Teletype* nextadd;
+
+
+};
+void populate(Teletype*);
+void display(Teletype*);
+
+int main()
+{
+	int i; //loop
+	Teletype* list, * current;
+	list = new Teletype;
+	current = list;
+
+	//create notes and fill them up with data
+	for (i = 0; i < maxrecs; i++)
+	{
+		populate(current);
+		current->nextadd = new Teletype; 
+		current = current->nextadd;
+
+	}
+	populate(current);
+	current->nextadd = NULL;
+	cout << "\nThe list consists of the following records:\n";
+	display(list);
+	system("pause");
+	return 0;
+}
+//function implementations
+void populate(Teletype* record)
+{
+	cout << "Enter a name: ";
+	getline(cin, record->name);
+	cout << "Enter the phone number: ";
+	getline(cin, record->phoneno);
+	return; //optional 
+}
+void display(Teletype* contents)
+{
+	while (contents != NULL)
+	{
+		cout << endl << setw(30) << contents->name << setw(20) << contents->phoneno;
+		contents = contents->nextadd;
+	}
+}
